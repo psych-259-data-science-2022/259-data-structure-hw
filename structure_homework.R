@@ -126,7 +126,7 @@ load("rs_data.RData")
 
 # top20's Style and Value are mixing two different variables into one column
 # use pivot_wider to fix the issue so that bpm and key are columns
-# overwrite top25 with the pivoted data (there should now be 20 rows!)
+# overwrite top20 with the pivoted data (there should now be 20 rows!)
 
 #ANSWER
 
