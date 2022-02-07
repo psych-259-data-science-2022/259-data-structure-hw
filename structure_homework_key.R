@@ -21,6 +21,9 @@ url_old <- "https://www.cs.ubc.ca/~davet/music/list/Best9.html"
 rs_old <- url_old %>% read_html() %>% html_nodes(xpath='/html/body/table[2]') %>% html_table() %>% pluck(1) %>% 
   select(1, 4, 3, 7) %>% rename(Rank = X1, Artist = X3, Song = X4, Year = X7) %>% filter(Year != "YEAR") 
 
+#OR
+load("rs_data.RData")
+
 ### Question 1 ---------- 
 
 # Use "full_join" to merge the old and new datasets, rs_new and rs_old,
@@ -141,7 +144,7 @@ top20 <- top20 %>% mutate(Release_Date = parse_date_time(Release, "%d-%b-%Y"))
 
 # top20's Style and Value are mixing two different variables into one column
 # use pivot_wider to fix the issue so that bpm and key are columns
-# overwrite top25 with the pivoted data (there should now be 20 rows!)
+# overwrite top20 with the pivoted data (there should now be 20 rows!)
 
 #ANSWER
 
