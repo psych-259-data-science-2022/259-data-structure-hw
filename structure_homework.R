@@ -21,6 +21,12 @@ url_old <- "https://www.cs.ubc.ca/~davet/music/list/Best9.html"
 rs_old <- url_old %>% read_html() %>% html_nodes(xpath='/html/body/table[2]') %>% html_table() %>% pluck(1) %>% 
   select(1, 4, 3, 7) %>% rename(Rank = X1, Artist = X3, Song = X4, Year = X7) %>% filter(Year != "YEAR") 
 
+# If there's a security error, add:
+#url %>% httr::GET(config = httr::config(ssl_verifypeer = FALSE)) %>% read_html()
+
+#OR
+load("rs_data.RData")
+
 ### Question 1 ---------- 
 
 # Use "full_join" to merge the old and new datasets, rs_new and rs_old,
